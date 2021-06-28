@@ -1,7 +1,7 @@
 Summary: Revision Control System (RCS) file version management tools
 Name: rcs
 Version: 5.9.4
-Release: 11
+Release: 12
 License: GPLv3+
 URL: http://www.gnu.org/software/rcs/
 Source: ftp://ftp.gnu.org/gnu/rcs/%{name}-%{version}.tar.xz
@@ -27,7 +27,7 @@ different versions of files.
 %package_help
 
 %prep
-%autosetup -n %{name}-%{version} -p1 -Sgit
+%autosetup -n %{name}-%{version} -p1
 autoconf
 
 %build
@@ -62,6 +62,9 @@ fi
 %{_mandir}/man[15]/*
 
 %changelog
+* Mon Jun 28 2021 shangyibin <shangyibin1@openeuler.org> - 5.9.4-12
+- %perp no longer patched with git
+
 * Wed Feb 12 2020 openEuler Buildteam <buildteam@openeuler.org> - 5.9.4-11
 - Package init
 
