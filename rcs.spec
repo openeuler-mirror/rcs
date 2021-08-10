@@ -1,12 +1,13 @@
 Summary: Revision Control System (RCS) file version management tools
 Name: rcs
 Version: 5.9.4
-Release: 12
+Release: 13
 License: GPLv3+
 URL: http://www.gnu.org/software/rcs/
 Source: ftp://ftp.gnu.org/gnu/rcs/%{name}-%{version}.tar.xz
 Patch0: rcs-5.8-build-tweaks.patch
 Patch1: rcs-5.9.4-t810_disable.patch
+Patch6000: backport-rcs-5.9.4-SIGSTKSZ.patch
 
 Provides: bundled(gnulib)
 BuildRequires:  gcc autoconf groff ghostscript ed texinfo
@@ -62,6 +63,9 @@ fi
 %{_mandir}/man[15]/*
 
 %changelog
+* Tue Aug 10 2021 shixuantong <shixuantong@huawei.com> - 5.9.4-13
+- fix build fail for SIGSTKSZ
+
 * Mon Jun 28 2021 shangyibin <shangyibin1@openeuler.org> - 5.9.4-12
 - %perp no longer patched with git
 
