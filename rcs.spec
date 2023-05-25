@@ -1,7 +1,7 @@
 Summary: Revision Control System (RCS) file version management tools
 Name: rcs
 Version: 5.9.4
-Release: 13
+Release: 14
 License: GPLv3+
 URL: http://www.gnu.org/software/rcs/
 Source: ftp://ftp.gnu.org/gnu/rcs/%{name}-%{version}.tar.xz
@@ -35,6 +35,8 @@ autoconf
 %if "%{version}" <= "5.9.4"
 CFLAGS="${RPM_OPT_FLAGS} -std=c99"
 %endif
+CFLAGS="${CFLAGS} -Wno-format-security"
+export CFLAGS
 %configure --with-diffutils
 %make_build
 
@@ -63,6 +65,9 @@ fi
 %{_mandir}/man[15]/*
 
 %changelog
+* Thu May 25 2023 Xiaoya Huang <huangxiaoya@iscas.ac.cn> -5.9.4-14
+- Fix clang building errors
+
 * Tue Aug 10 2021 shixuantong <shixuantong@huawei.com> - 5.9.4-13
 - fix build fail for SIGSTKSZ
 
